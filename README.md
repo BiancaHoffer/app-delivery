@@ -19,7 +19,7 @@ O projeto está em andamento e consiste em um sistema de delivery dividido em du
 
 - ``React Native``
 - ``TypeScript``
-- ``Expo`
+- ``Expo``
 - ``NativeWind``
 - ``Firebase 10``
 - ``React Navigation``
