@@ -28,8 +28,8 @@ O projeto está em andamento e consiste em um sistema de delivery dividido em du
 
 ## 🎯 Imagens do projeto 
 
-![Captura de tela 2023-11-02 134438](https://github.com/BiancaHoffer/app-delivery/assets/99914904/cb226dba-6e39-4f54-a282-e3a6a9af25fc)
-![Captura de tela 2023-11-02 134420](https://github.com/BiancaHoffer/app-delivery/assets/99914904/51f81324-2178-48be-acf3-31e71ff402b4)
-![Captura de tela 2023-11-02 134400](https://github.com/BiancaHoffer/app-delivery/assets/99914904/333efa3b-e6bc-4c49-ad20-e101f46619f9)
 ![Captura de tela 2023-11-02 134340](https://github.com/BiancaHoffer/app-delivery/assets/99914904/04859309-700b-49a1-96d9-7498e7434e45)
 ![Captura de tela 2023-11-02 134312](https://github.com/BiancaHoffer/app-delivery/assets/99914904/87532602-4531-4444-a4f1-2faf4237e784)
+![Captura de tela 2023-11-02 134400](https://github.com/BiancaHoffer/app-delivery/assets/99914904/333efa3b-e6bc-4c49-ad20-e101f46619f9)
+![Captura de tela 2023-11-02 134438](https://github.com/BiancaHoffer/app-delivery/assets/99914904/cb226dba-6e39-4f54-a282-e3a6a9af25fc)
+![Captura de tela 2023-11-02 134420](https://github.com/BiancaHoffer/app-delivery/assets/99914904/51f81324-2178-48be-acf3-31e71ff402b4)
