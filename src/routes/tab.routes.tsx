@@ -1,6 +1,8 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 import { Home } from "../screens/Home";
 import { Orders } from "../screens/Orders";
+import { Cart } from "../screens/Cart";
 
 const Tab = createBottomTabNavigator();
 
@@ -11,7 +13,6 @@ export function TabRoutes() {
         name="homeTab"
         component={Home}
       />
-
       <Tab.Screen
         name="orders"
         component={Orders}

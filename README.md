@@ -1,4 +1,4 @@
-<h1>WEBhttps://github.com/BiancaHoffer/web-delivery-/tree/main-DELIVERY</h1>
+<h1>APP DELIVERY</h1>
 
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
@@ -19,7 +19,7 @@ O projeto está em andamento e consiste em um sistema de delivery dividido em du
 
 - ``React Native``
 - ``TypeScript``
-- ``Expo`
+- ``Expo``
 - ``NativeWind``
 - ``Firebase 10``
 - ``React Navigation``

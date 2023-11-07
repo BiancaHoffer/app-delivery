@@ -1,4 +1,9 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity
+} from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -15,7 +20,6 @@ export function SignIn() {
         source={require("../images/logo.png")}
         className="w-24 h-24 mb-12"
       />
-
       <View className="px-[40px] w-full flex items-center">
         <Input
           placeholder="E-mail"
@@ -23,7 +27,6 @@ export function SignIn() {
           inputMode="email"
           icon="mail-outline"
         />
-
         <Input
           placeholder="Senha"
           name="password"
@@ -39,13 +42,11 @@ export function SignIn() {
             Esqueceu a senha?
           </Text>
         </TouchableOpacity>
-
         <Button
           title="Acessar"
           onPress={() => navigation.navigate("home")}
         />
         <ButtonGoogle title="Acessar com o google" />
-
         <TouchableOpacity
           onPress={() => navigation.navigate("signup")}
         >

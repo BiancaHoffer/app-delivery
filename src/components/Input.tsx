@@ -1,12 +1,16 @@
 import { useState } from "react";
-import { TextInput, View, TextInputProps, TouchableOpacity } from "react-native";
+import {
+  TextInput,
+  View,
+  TextInputProps,
+  TouchableOpacity
+} from "react-native";
 
 import { Ionicons } from '@expo/vector-icons';
 
 interface InputProps extends TextInputProps {
   icon?: keyof typeof Ionicons.glyphMap;
   name: string;
-
   activeErrors?: boolean;
   inputIsPassword?: boolean;
   startWithHiddenPassword?: boolean;
@@ -25,7 +29,7 @@ export function Input({
   return (
     <>
       <View
-        className="border-[1px] w-[auto] mb-6 px-4 py-2 flex flex-row items-center rounded-3xl border-zinc-200 shadow-lg bg-white focus:border-primary"
+        className="border-[1px] w-[auto] mb-6 px-4 py-2 flex flex-row items-center rounded-2xl border-zinc-200 shadow-lg bg-white focus:border-primary"
       >
         <Ionicons name={icon} size={24} color="#fb923c" />
         <TextInput
@@ -33,7 +37,6 @@ export function Input({
           className="w-[100%] px-2 py-1 text-base text-zinc-900"
           {...props}
         />
-
         <View className={`${inputIsPassword === true ? "flex" : "hidden"}`}>
           <TouchableOpacity
             onPress={() => setShowPassword(!showPassword)}

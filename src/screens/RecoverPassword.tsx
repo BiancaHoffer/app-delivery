@@ -13,7 +13,6 @@ export function RecoverPassword() {
       <Text className="text-xl font-medium text-zinc-600 mb-8">
         Recuperar senha
       </Text>
-
       <View className="w-full flex items-center px-[40px]">
         <Input
           placeholder="E-mail"
@@ -21,10 +20,8 @@ export function RecoverPassword() {
           inputMode="email"
           icon="mail-outline"
         />
-
         <Button title="Recuperar senha" />
       </View>
-
       <TouchableOpacity
         onPress={() => navigation.navigate("signin")}
       >
@@ -32,14 +29,12 @@ export function RecoverPassword() {
           Já possuo uma conta
         </Text>
       </TouchableOpacity>
-
       <TouchableOpacity
         onPress={() => navigation.navigate("signup")}
       >
         <Text className="mt-4 text-zinc-600 font-bold text-base">
           Criar conta
         </Text>
-
       </TouchableOpacity>
     </View>
   )
