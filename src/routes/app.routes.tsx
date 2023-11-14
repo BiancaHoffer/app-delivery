@@ -1,16 +1,13 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { TabRoutes } from './tab.routes';
-
 import { SignIn } from '../screens/SignIn';
 import { SignUp } from '../screens/SignUp';
 import { RecoverPassword } from '../screens/RecoverPassword';
-import { Cart } from '../screens/Cart';
-import { Product } from '../screens/Product';
+import { SuccessSignUp } from '../screens/SuccessSignUp';
 
 const Stack = createNativeStackNavigator();
 
-export function StackRoutes() {
+export function AppRoutes() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen
@@ -26,16 +23,8 @@ export function StackRoutes() {
         component={RecoverPassword}
       />
       <Stack.Screen
-        name="home"
-        component={TabRoutes}
-      />
-      <Stack.Screen
-        name="cart"
-        component={Cart}
-      />
-      <Stack.Screen
-        name="product"
-        component={Product}
+        name="successsignin"
+        component={SuccessSignUp}
       />
     </Stack.Navigator>
   )

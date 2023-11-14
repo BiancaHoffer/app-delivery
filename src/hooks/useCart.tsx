@@ -16,9 +16,15 @@ interface AuthContextProps {
   cart: ProductData[];
   addCart: (data: Cart) => void;
   removeCart: (id: string) => void;
+  updateAmount: ({ id, type }: UpdateAmount) => void;
 }
 
-export interface ProductData {
+interface UpdateAmount {
+  id: string;
+  type: "increment" | "decrement"
+}
+
+interface ProductData {
   id: string;
   name: string;
   price: string;
@@ -26,7 +32,7 @@ export interface ProductData {
   image: string;
 }
 
-export interface Cart extends ProductData {
+interface Cart extends ProductData {
   amount: number;
 }
 
@@ -35,18 +41,16 @@ export const CartContext = createContext({} as AuthContextProps);
 export function CartProvider({ children }: AuthProviderProps) {
   const [cart, setCart] = useState<Cart[]>([]);
 
-  function addCart(data: Cart) {
+  function addCart(product: Cart) {
     let copyCart = [...cart];
 
-    const productIndex = copyCart.findIndex(item => item.id === data.id);
+    const productIndex = copyCart.findIndex(item => item.id === product.id);
 
     if (productIndex < 0) {
-      copyCart.push(data);
+      copyCart.push(product);
     } else {
-      //1                          +   //1
-      copyCart[productIndex].amount += data.amount;
+      copyCart[productIndex].amount += product.amount;
     }
-
     setCart(copyCart);
   }
 
@@ -63,11 +67,27 @@ export function CartProvider({ children }: AuthProviderProps) {
     }
   }
 
+  function updateAmount({ id, type }: UpdateAmount) {
+    const copyCart = [...cart];
+    const productIndex = copyCart.findIndex(item => item.id === id);
+
+    if (productIndex >= 0) {
+      const item = copyCart[productIndex];
+      copyCart[productIndex].amount =
+        type === "increment" ? item.amount + 1 : item.amount - 1;
+    } else {
+      throw Error();
+    }
+
+    setCart(copyCart);
+  }
+
   return (
     <CartContext.Provider value={{
       cart,
       addCart,
-      removeCart
+      removeCart,
+      updateAmount
     }}>
       {children}
     </CartContext.Provider>

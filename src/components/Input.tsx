@@ -10,18 +10,14 @@ import { Ionicons } from '@expo/vector-icons';
 
 interface InputProps extends TextInputProps {
   icon?: keyof typeof Ionicons.glyphMap;
-  name: string;
-  activeErrors?: boolean;
   inputIsPassword?: boolean;
   startWithHiddenPassword?: boolean;
 }
 
 export function Input({
   icon,
-  name,
-  activeErrors = true,
   inputIsPassword = false,
-  startWithHiddenPassword = true,
+  startWithHiddenPassword = false,
   ...props
 }: InputProps) {
   const [showPassword, setShowPassword] = useState(startWithHiddenPassword);

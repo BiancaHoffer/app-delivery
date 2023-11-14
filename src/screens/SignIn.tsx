@@ -1,8 +1,11 @@
+import { useState } from "react";
+
 import {
   View,
   Text,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
@@ -10,9 +13,33 @@ import { useNavigation } from "@react-navigation/native";
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
 import { ButtonGoogle } from "../components/ButtonGoogle";
+import { useAuth } from "../hooks/useAuth";
 
 export function SignIn() {
+  const { signIn, loading } = useAuth();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const navigation = useNavigation();
+
+  function handleSignIn() {
+    const dataUser = {
+      email,
+      password,
+    };
+
+    if (email === "" || password === "") {
+      Alert.alert("Por favor, preencha os campos obrigatórios. '*'")
+      return;
+    }
+
+    signIn(dataUser);
+
+    if (loading == false) {
+      navigation.navigate("home");
+    };
+  }
 
   return (
     <View className="flex justify-center items-center h-screen bg-white">
@@ -22,17 +49,19 @@ export function SignIn() {
       />
       <View className="px-[40px] w-full flex items-center">
         <Input
-          placeholder="E-mail"
-          name="e-mail"
+          placeholder="E-mail *"
           inputMode="email"
           icon="mail-outline"
+          value={email}
+          onChangeText={email => setEmail(email)}
         />
         <Input
-          placeholder="Senha"
-          name="password"
+          placeholder="Senha *"
           inputIsPassword={true}
           startWithHiddenPassword={true}
           icon="lock-closed-outline"
+          value={password}
+          onChangeText={pass => setPassword(pass)}
         />
         <TouchableOpacity
           onPress={() => navigation.navigate("recoverpassword")}
@@ -43,8 +72,8 @@ export function SignIn() {
           </Text>
         </TouchableOpacity>
         <Button
-          title="Acessar"
-          onPress={() => navigation.navigate("home")}
+          title={loading ? "carregando" : "Acessar"}
+          onPress={handleSignIn}
         />
         <ButtonGoogle title="Acessar com o google" />
         <TouchableOpacity

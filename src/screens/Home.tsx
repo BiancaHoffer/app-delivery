@@ -48,7 +48,7 @@ export function Home() {
   const refProduct = collection(db, "product");
 
   useEffect(() => {
-    async function getDocsCategory() {
+    async function getCategories() {
       let listCatoriesID = [] as string[];
 
       onSnapshot(refCategory, snapshot => {
@@ -59,11 +59,11 @@ export function Home() {
       });
     };
 
-    getDocsCategory();
+    getCategories();
   }, []);
 
   useEffect(() => {
-    async function getProductByCategory() {
+    async function getProducts() {
       const listProducts = [] as any;
 
       try {
@@ -81,7 +81,7 @@ export function Home() {
       };
     };
 
-    getProductByCategory();
+    getProducts();
   }, []);
 
   useEffect(() => {
@@ -123,7 +123,7 @@ export function Home() {
   };
 
   return (
-    <View className="h-screen bg-slate-50">
+    <View className="h-screen bg-white">
       <View className="px-[20px] bg-white py-[20px] flex justify-between items-center flex-row mb-4 border-b-[0.2px] border-zinc-200">
         <Text className="text-lg font-medium text-zinc-600">
           Bem-vindo(a)
@@ -136,12 +136,6 @@ export function Home() {
         </TouchableOpacity>
       </View>
       <View className="px-[20px]">
-        <View className="mb-4 p-1">
-          <Image
-            source={require("../images/banner.png")}
-            className="object-cover h-40 w-full"
-          />
-        </View>
         <FlatList
           data={categoriesID}
           horizontal
@@ -152,8 +146,8 @@ export function Home() {
               onPress={() => handleCategoryPress(item)}
             >
               <Text
-                className={`text-base px-6 py-2 rounded-3xl bg-zinc-100 mr-4 shadow-lg
-                ${categorySelected === item ? 'font-medium text-secondary bg-orange-100' : 'font-normal'}
+                className={`text-base px-6 py-2 rounded-3xl bg-zinc-200 mr-4 shadow-lg
+                ${categorySelected === item ? 'font-medium text-white bg-primary' : 'font-medium text-zinc-800'}
                 `}
               >
                 {item[0].toUpperCase() + item.substring(1)}
@@ -165,7 +159,7 @@ export function Home() {
       {categorySelected && (
         <FlatList
           className={`px-[20px] mt-[16px] 
-          ${cart.length == 0 ? "mb-[72px]" : "mb-[132px]"}
+          ${cart.length == 0 ? "mb-[100px]" : "mb-[160px]"}
           `}
           scrollEnabled
           data={productCategory}
@@ -177,10 +171,10 @@ export function Home() {
           )}
         />
       )}
-      <View className="absolute w-full px-[20px] bottom-20">
+      <View className="absolute w-full px-[20px] bottom-28">
         {cart.length >= 1 &&
           <Button
-            title="Ver carrinho"
+            title={`Ver carrinho (${cart.length})`}
             onPress={() => navigation.navigate("cart")}
           />
         }

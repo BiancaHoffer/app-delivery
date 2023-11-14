@@ -1,12 +1,23 @@
+import { useState } from "react";
 import { TouchableOpacity, View, Text } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
+import { useAuth } from "../hooks/useAuth";
 
 export function RecoverPassword() {
+  const [email, setEmail] = useState("");
+
+  const { resetPassword } = useAuth();
+
   const navigation = useNavigation();
+
+  function handleResetPassword() {
+    resetPassword(email);
+    setEmail("");
+  }
 
   return (
     <View className="flex items-center justify-center h-full bg-white">
@@ -16,11 +27,12 @@ export function RecoverPassword() {
       <View className="w-full flex items-center px-[40px]">
         <Input
           placeholder="E-mail"
-          name="e-mail"
           inputMode="email"
           icon="mail-outline"
+          value={email}
+          onChangeText={(email => setEmail(email))}
         />
-        <Button title="Recuperar senha" />
+        <Button title="Recuperar senha" onPress={handleResetPassword} />
       </View>
       <TouchableOpacity
         onPress={() => navigation.navigate("signin")}

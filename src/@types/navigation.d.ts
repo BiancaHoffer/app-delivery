@@ -6,8 +6,11 @@ export declare global {
     interface RootParamList {
       signin: undefined;
       signup: undefined;
+      successsignin: undefined;
       home: undefined;
+      homeTab: undefined;
       orders: undefined;
+      account: undefined;
       recoverpassword: undefined;
       cart: undefined;
       product: CardProps;
