@@ -41,6 +41,8 @@ interface UserData {
   phone: string;
   email: string;
   password: string;
+  type: "user" | "admin";
+  address: [];
 }
 
 interface UserSignIn {
@@ -87,7 +89,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
         email: userCredential.email,
         phone: userData.phone,
         password: userData.password,
-        emailVerified: userCredential.emailVerified
+        emailVerified: userCredential.emailVerified,
+        type: "user",
+        address: [],
       } as UserDatabase;
 
       sendEmailConfirmation(userCredential);
